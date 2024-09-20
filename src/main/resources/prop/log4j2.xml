@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %-5p %m %n" />
+        </Console>
+
+        <RollingFile
+                name="EBOOKMAKER_FILE_APPENDER_VERBOSE"
+                fileName="/var/log/scriba/scriba_verbose.log"
+                filePattern="/var/log/scriba/scriba_verbose.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%t %c{1}-%-5p %d{yyyyMMdd HH:mm:ss} %m [%l]%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+        <RollingFile
+                name="EBOOKMAKER_FILE_APPENDER"
+                fileName="/var/log/scriba/scriba.log"
+                filePattern="/var/log/scriba/scriba.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%d %-5p %m%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+
+        <RollingFile
+                name="EBOOKMAKER_BATCH_APPENDER"
+                fileName="/var/log/scriba/scriba_batch.log"
+                filePattern="/var/log/scriba/scriba_batch.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%d %-5p %m%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+
+        <RollingFile
+                name="HTTPCOMMONS_FILE_APPENDER"
+                fileName="/var/log/scriba/httpcommons.log"
+                filePattern="/var/log/scriba/httpcommons.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%d %-5p %m%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+        <RollingFile
+                name="FONTBOX_FILE_APPENDER"
+                fileName="/var/log/scriba/fontbox.log"
+                filePattern="/var/log/scriba/fontbox.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%d %-5p %m%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+        <RollingFile
+                name="PDFBOX_FILE_APPENDER"
+                fileName="/var/log/scriba/pdfbox.log"
+                filePattern="/var/log/scriba/pdfbox.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%d %-5p %m%n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+
+        <RollingFile
+                name="ITEXTPDF_FILE_APPENDER"
+                fileName="/var/log/scriba/itext.log"
+                filePattern="/var/log/scriba/itext.%i.log"
+                ignoreExceptions="false">
+            <PatternLayout pattern="%t %c{1}-%-5p %d{yyyyMMdd HH:mm:ss} %m %n" />
+            <Policies>
+                <OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="5000 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="5"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="it.senato.areatesti.bgt.parserdoc" additivity="false" level="debug">
+            <AppenderRef ref="EBOOKMAKER_FILE_APPENDER" />
+            <AppenderRef ref="EBOOKMAKER_FILE_APPENDER_VERBOSE"/>
+            <AppenderRef ref="stdout"/>
+        </Logger>
+        <Logger name="it.senato.areatesti.ebook.scriba.batch" additivity="false" level="debug">
+            <appender-ref ref="EBOOKMAKER_BATCH_APPENDER"/>
+            <appender-ref ref="stdout"/>
+        </Logger>
+        <Logger name="org.apache.http" additivity="false" level="warn">
+            <appender-ref ref="HTTPCOMMONS_FILE_APPENDER"/>
+            <appender-ref ref="stdout"/>
+        </Logger>
+        <Logger name="org.apache.fontbox" additivity="false" level="error">
+            <appender-ref ref="FONTBOX_FILE_APPENDER"/>
+            <appender-ref ref="stdout"/>
+        </Logger>
+        <Logger name="org.apache.pdfbox" additivity="false" level="error">
+            <appender-ref ref="PDFBOX_FILE_APPENDER"/>
+            <appender-ref ref="stdout"/>
+        </Logger>
+        <Logger name="com.itextpdf" additivity="false" level="warn">
+            <appender-ref ref="ITEXTPDF_FILE_APPENDER"/>
+            <appender-ref ref="stdout"/>
+        </Logger>
+        <Root level="trace">
+            <AppenderRef ref="stdout"/>
+        </Root>
+    </Loggers>
+</Configuration>

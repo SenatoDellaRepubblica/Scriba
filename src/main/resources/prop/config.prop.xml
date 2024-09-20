@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+    <!--  @@ General properties -->
+    <entry key="VERSION_FOOTPRINT">Scriba eBook Maker v. 2024-09</entry>
+
+    <entry key="CSS_PLACEHOLDER">%stile(\d*).css%</entry>
+    <entry key="CSS_STYLE_NAME">stile$1.css</entry>
+    <entry key="OLD_BASE_URL">http://www.senato.intranet</entry>
+    <entry key="BASE_URL">http://www.senato.it</entry>
+    <entry key="XSL_PROP">prop/xslt/senebook.xsl</entry>
+    <!-- SENATO CODE -->
+    <entry key="JTIDY_DEFAULT_POSITION">code</entry>
+    <!-- UN CODE -->
+    <!-- <entry key="JTIDY_DEFAULT_POSITION">file</entry> -->
+    <entry key="JTIDY_LOG">false</entry>
+
+    <!-- @@ Props for EPUB and ZIP ebooks -->
+    <entry key="LOGO_PLACEHOLDER">%logo%</entry>
+    <!-- UN CODE -->
+    <!-- <entry key="SECTION_LOGO_FILE_NAME">no_image.png</entry> -->
+    <!-- SENATO CODE -->
+    <entry key="SECTION_LOGO_FILE_NAME">IMG/logo_senato_small.png</entry>
+
+    <!-- @@ Props for PDF Ebooks -->
+    <entry key="PDF_EBOOK_LOGO_META">pdfcoverlogo</entry>
+    <entry key="PDF_EBOOK_ARROW_META">pdfarrowimage</entry>
+    <entry key="PDF_EBOOK_DPT_LOGO_META">pdfDptlogo</entry>
+    <entry key="PDF_DISCLAIMER_META">pdfDisclaimer</entry>
+    <entry key="PDF_DOCNAME_META">pdfDocName</entry>
+    <entry key="PDF_TOCNAME_META">pdfTocName</entry>
+    <entry key="PDF_DOCLINK_META">pdfDocLinkText</entry>
+
+    <entry key="PDF_CSS">
+        <![CDATA[
+						body { font-family: "Times New Roman"; }
+
+						.testoJustify {
+							text-align:justify; 
+							text-justify:inter-word;
+						}
+						
+						.testoCenter {
+							text-align:center; 
+						}
+						
+						.Testatina {
+							text-align:center; 
+						}
+
+						.TipoAtto {
+							text-align:center; 
+						}
+						
+						.NumAtto {
+							text-align:right;
+							font-weight: bold;							 
+						}						
+												
+						]]>
+    </entry>
+
+</properties>
